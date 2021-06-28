@@ -27,6 +27,7 @@ To report on local election data without several counties, remove (or "comment o
 [Local Election Audit](https://github.com/rabascoh/election-analysis/blob/main/Resources/PyPoll_LocalElections_Ex1.py)
 
 Please see the Election Audit results updated to the Local Election format below. 
+
 [Local Election Results Format](https://github.com/rabascoh/election-analysis/blob/main/Resources/ex1_election_analysis.txt)
 
 ### Biennial Congressional Election Audit
