@@ -21,9 +21,10 @@ The purpose of this project is to perform an election audit of a local congressi
 
 ## Election Audit Summary: 
 This election audit analysis can be replicated for any election with some modifications. 
-### Statewide Congressional Election Audit
-To report on statewide data for the congressional election, append the data for all counties in Colorado to the election results file. 
-[ADD REC]
+### Local Election Audit
+To report on local election data, remove the county level analysis and only report on the candidate votes and winning candidate. 
+
+
 ### Biennial Congressional Election Audit
 To track election results over time, add a field for the year and append the data for the previous years' election data to the election results file. 
 [ADD REC]
