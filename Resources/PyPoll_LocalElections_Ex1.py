@@ -84,7 +84,7 @@ with open(file_to_save, "w") as txt_file:
     # Print the final vote count (to terminal)
     # UPDATED FOR LOCAL ELECTION
     election_results = (
-        f"\nElection Results\n"
+        f"\nLocal Election Results\n"
         f"-------------------------\n"
         f"Total Votes: {total_votes:,}\n"
         f"-------------------------\n\n"
