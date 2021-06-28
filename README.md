@@ -31,7 +31,7 @@ Please see the Election Audit results updated to the Local Election format below
 [Local Election Results Format](https://github.com/rabascoh/election-analysis/blob/main/Resources/ex1_election_analysis.txt)
 
 ### Biennial Congressional Election Audit
-To track election results over time, add a field for the election years and append the data for the previous years' election data to the election results file. For this example, mock year data were added to the election results datafile ([example datafile](https://github.com/rabascoh/election-analysis/blob/main/Resources/ex2_election_results.csv))
+To track election results over time, add a field for the election years and append the data for the previous years' election data to the election results file. For this example, mock year data were added to the election results datafile ([example datafile](https://github.com/rabascoh/election-analysis/blob/main/Resources/ex2_election_results.csv)). 
 
 For this analysis, replicate the county analysis procedure for the election years. This analysis includes creating a new list & dictionary for the years, calculating the number of votes per year, the percentage of total votes per year and year with the highest voter turnout and saving this information to the text file. 
 
