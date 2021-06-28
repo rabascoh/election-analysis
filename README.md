@@ -24,10 +24,10 @@ This election audit analysis can be replicated for any election with some modifi
 ### Local Election Audit
 To report on local election data without several counties, remove (or "comment out") the county level analysis and only report on the candidate votes and winning candidate. The following analysis has been updated for local elections. 
 
-![Local Election Audit](https://github.com/rabascoh/election-analysis/blob/main/Resources/PyPoll_LocalElections_Ex1.py)
+[Local Election Audit](https://github.com/rabascoh/election-analysis/blob/main/Resources/PyPoll_LocalElections_Ex1.py)
 
 Please see the Election Audit results updated to the Local Election format below. 
-![Local Election Results Format](https://github.com/rabascoh/election-analysis/blob/main/Resources/ex1_election_analysis.txt)
+[Local Election Results Format](https://github.com/rabascoh/election-analysis/blob/main/Resources/ex1_election_analysis.txt)
 
 ### Biennial Congressional Election Audit
 To track election results over time, add a field for the year and append the data for the previous years' election data to the election results file. 
