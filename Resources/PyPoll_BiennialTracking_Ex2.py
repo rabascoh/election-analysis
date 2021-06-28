@@ -2,14 +2,17 @@
 import csv
 import os
 
-# Assign a variable for the file to load and the path.
-file_to_load = os.path.join("Resources", "election_results.csv")
+# Assign a variable for the file to load and the path (updated new file & path).
+file_to_load = os.path.join("ex2_election_results.csv")
 
 # Assign a variable to to save the file to a path.
-file_to_save = os.path.join("analysis", "election_analysis.txt")
+file_to_save = os.path.join("ex2_election_analysis.txt")
 
 # Initialize a total vote counter.
 total_votes = 0
+
+# ADD YEAR
+year = 0
 
 # Candidate Options and candidate votes.
 candidate_options = []
@@ -19,6 +22,10 @@ candidate_votes = {}
 county_list = []
 county_votes = {}
 
+# CREATE A YEAR LIST AND YEAR VOTES DIRECTORY
+year_list = []
+year_votes = {}
+
 # Track the winning candidate, vote count and percentage
 winning_candidate = ""
 winning_count = 0
@@ -27,6 +34,10 @@ winning_percentage = 0
 # 2: Track the largest county and county voter turnout.
 largest_county = ""
 county_turnout = 0
+
+# TRACK HIGHEST VOTER TURNOUT FOR YEAR AND YEARLY VOTER TURNOUT
+highest_year = 0
+year_turnout = 0
 
 # Read the csv and convert it into a list of dictionaries
 with open(file_to_load) as election_data:
@@ -46,6 +57,9 @@ with open(file_to_load) as election_data:
 
         # 3: Extract the county name from each row.
         county_name = row[1]
+
+        #Get the year from each row.
+        year = row[3]
 
         # If the candidate does not match any existing candidate add it to
         # the candidate list
@@ -70,8 +84,21 @@ with open(file_to_load) as election_data:
             # 4c: Begin tracking the county's vote count.
             county_votes[county_name] = 0
 
-        # 5: Add a vote to that county's vote count.
+        # Add a vote to that county's vote count.
         county_votes[county_name] += 1
+
+        # Write an if statement that checks that the
+        # year does not match any existing years in the year list.
+        if year not in year_list:
+
+            # Add the existing year to the list of years.
+            year_list.append(year)
+
+            # Begin tracking the year's vote count.
+            year_votes[year] = 0
+
+        # Add a vote to that year's vote count.
+        year_votes[year] += 1
 
 
 # Save the results to our text file.
@@ -119,6 +146,39 @@ with open(file_to_save, "w") as txt_file:
 
     # 8: Save the county with the largest turnout to a text file.
     txt_file.write(largest_county_summary)
+
+    ##ADDED YEAR ANALYSIS
+    # Write a for loop to get the year from the year dictionary.
+    for year in year_votes:
+        # Retrieve the year vote count.
+        year_vote_count = year_votes.get(year)
+        # Calculate the percentage of votes for that year.
+        year_vote_percentage = float(year_vote_count) / float(total_votes) * 100
+
+         # Print the year results to the terminal.
+        year_results = (
+        f"{year}: {year_vote_percentage:.1f}% ({year_vote_count:,})\n")
+
+        print(year_results)
+        
+         # Save the year votes to a text file.
+        txt_file.write(year_results)
+
+         # Write an if statement to determine the winning year and get its vote count.
+        if (year_vote_count > year_turnout):
+            highest_year = year
+            year_turnout = year_vote_count
+
+    # Print the county with the largest turnout to the terminal.
+    highest_year_summary = (
+        f"-------------------------\n"
+        f"Year with the Highest Turnout: {highest_year}\n"
+        f"-------------------------\n")
+
+    print(highest_year_summary)
+
+    # Save the county with the largest turnout to a text file.
+    txt_file.write(highest_year_summary)
 
     # Save the final candidate vote count to the text file.
     for candidate_name in candidate_votes:
